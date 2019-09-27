@@ -1,6 +1,8 @@
 #include <iostream>
 
 using namespace std;
+
+
 // 1 imprimir los elementos de un arreglo
 
 void imprimir(int arr[],int tam)
@@ -60,6 +62,7 @@ int main()
     }
     cout << sumi (arr,tam) << endl;
 }
+
 // 3 
 void invertir(int &arr[],int &tam)
 {
@@ -70,7 +73,6 @@ void invertir(int &arr[],int &tam)
         arr[i]=arr[tam];
         arr[tam--]=c;
     }
-    return invertir(arr,tam);
 }
 int main()
 {
@@ -83,7 +85,30 @@ int main()
 
     invertir(arr,tam);
 }
+
 //recursiva
+int invertir(int arr[],int tam)
+{
+    if(tam==0){
+        return arr[0];
+    }
+    else
+    while(tam>0){
+        return arr[tam];
+        tam--;
+    }
+}
+int main()
+{
+    int tam;
+    int arr[tam];
+    for (int i=0;i<tam;i++){
+            cin >> arr[i];
+    }
+
+    cout << invertir(arr,tam);
+}
+
 //5
 void quicksort(int arr[],int inicio,int fin)
 {
