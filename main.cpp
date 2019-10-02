@@ -64,28 +64,39 @@ int main()
 }
 
 // 3 
-void invertir(int &arr[],int &tam)
-{
-    int v=tam/2;
-    tam=1;
-    for (int i=0;i<v;i++){
-        int c=arr[i];
-        arr[i]=arr[tam];
-        arr[tam--]=c;
-    }
-}
+void imprimir(int arr[], int tam)
+            {
+                for(int i = 0; i < tam; i++)
+                    cout << arr[i] << " ";
+                    cout << endl;
+            }
+
+            int swap(int &x, int &y){
+                        int temp = x;
+                            x = y;
+                            y = temp;
+            }
+
+            int invertir(int arr[], int tam)
+            {
+                for(int i = 0; i < tam/2; i++){
+            swap(arr[i], arr[tam-1-i]);
+                }
+            }
+
 int main()
 {
-    int tam;
-    cin >> tam;
-    int arr[tam];
-    for (int i=0;i<tam;i++){
-            cin >> arr[i];
-    }
+    int arr[5] = {1, 2, 3, 4, 5};
 
-    invertir(arr,tam);
+    int a = 5;
+    int b = 10;
+    swap(a,b);
+    cout << a << " " << b << endl;
+
+    imprimir(arr, 5);
+    invertir(arr, 5);
+    imprimir(arr, 5);
 }
-
 //recursiva
 int invertir(int arr[],int tam)
 {
@@ -110,71 +121,60 @@ int main()
 }
 
 //5
-void quicksort(int arr[],int inicio,int fin)
-{
-    int i=inicio,j=fin,tem;
-    int p=arr[(inicio+fin)/2];
-while (i<=j)
-{
-    while(arr[i]<p)
-        i++;
-    while(arr[i]>p)
-        j--;
-    if(i<=j){
-        tem=arr[i];
-        arr[i]=arr[j];
-        arr[j]=tem;
-        i++;
-        j--;
-    }
-}
-if(inicio<j)
-    quicksort(arr,inicio,j);
-    if (i<fin)
-        quicksort(arr,i,fin);
-}
-int main()
-{
-    int arreglo[10]={8,6,66,33,98,7,23,5,0,100};
-    quicksort(arreglo,0,9);
-    for (int i=0;i<10;i++)
-        cout << arreglo[i];
-    cout << arreglo[10];
-
-}
-
-//insertionsort
-void insertion(int arr[],int tam)
-{
-   int i,j,temp;
-       for(i=0;i<tam;i++)
-    {
-        cin>>arr[i];
-    }
-
-    for(i=1;i<=tam-1;i++)
-    {
-        temp=arr[i];
-        j=i-1;
-
-        while((temp<arr[j])&&(j>=0))
-        {
-            arr[j+1]=arr[j];
-            j=j-1;
+//burbuja 
+int main(){
+    int arr[]={99,3,21,45,0};
+    int n=5;
+    int i,j;
+    for (i=1;i<n;i++){
+        for(j=n-1;j>=i;j--){
+            if(arr[j-1] > arr[j]){
+                int aux=arr[j-1];
+                arr[j-1]=arr[j];
+                arr[j]=aux;
+            }
         }
-
-        arr[j+1]=temp;
-
+    }
+    for(i=0;i<n;i++){
+        cout << arr[i]<<" ";
+    }
 }
+
+//insertion
+void imprimir(int ar[], int tm)
+{
+    int j;
+    for (j = 0; j < tm; j++)
+    {
+        cout <<" "<< ar[j];
+    }
+    cout << endl;
+}
+
+void insertionSort(int arr[], int tam)
+{
+    int i, j, aux;
+    for (i = 1; i < tam; i++)
+    {
+        aux = arr[i];
+        j = i-1;
+
+        while (j >= 0 && arr[j] >aux)
+        {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j +1] = aux;
+
+    }
+    imprimir(arr, tam);
+}
+
 int main()
 {
-    int n;
-    cout<<"numero de elementos: ";
-    cin>>n;
-    cout<<"elementos: ";
-    cin >> n;
-    for(i=0;i<n;i++){
-        cout<<arr[i];
-    }
-
+    int ar[6] = {5, 1, 6, 2, 4, 3};
+    insertionSort(ar, 6);
+    return 0;
 }
+
+//quicksort
