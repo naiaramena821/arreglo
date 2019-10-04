@@ -112,12 +112,12 @@ int main()
 
 //5
 //burbuja 
-void imprimir(int *ptr, int tm)
+void imprimir(int ar[], int tm)
 {
     int j;
     for (j = 0; j < tm; j++)
     {
-        cout <<" "<< *(ptr+j);
+        cout <<" "<< ar[j];
     }
     cout << endl;
 }
@@ -138,7 +138,7 @@ int main(){
     int arr[]={99,3,21,45,0};
     int tam=5;
         burbuja(arr,5);
-    }
+}
 //insertion
 void imprimir(int ar[], int tm)
 {
@@ -150,7 +150,7 @@ void imprimir(int ar[], int tm)
     cout << endl;
 }
 
-void insertionSort(int arr[], int tam)
+void insertion(int arr[], int tam)
 {
     int i, j, aux;
     for (i = 1; i < tam; i++)
@@ -172,7 +172,7 @@ void insertionSort(int arr[], int tam)
 int main()
 {
     int ar[6] = {5, 1, 6, 2, 4, 3};
-    insertionSort(ar, 6);
+    insertion(ar, 6);
     return 0;
 }
 
