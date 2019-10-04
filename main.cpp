@@ -112,12 +112,19 @@ int main()
 
 //5
 //burbuja 
-int main(){
-    int arr[]={99,3,21,45,0};
-    int n=5;
+void imprimir(int *ptr, int tm)
+{
+    int j;
+    for (j = 0; j < tm; j++)
+    {
+        cout <<" "<< *(ptr+j);
+    }
+    cout << endl;
+}
+void burbuja(int arr[],int tam){
     int i,j;
-    for (i=1;i<n;i++){
-        for(j=n-1;j>=i;j--){
+    for (i=1;i<tam;i++){
+        for(j=tam-1;j>=i;j--){
             if(arr[j-1] > arr[j]){
                 int aux=arr[j-1];
                 arr[j-1]=arr[j];
@@ -125,11 +132,13 @@ int main(){
             }
         }
     }
-    for(i=0;i<n;i++){
-        cout << arr[i]<<" ";
-    }
+    imprimir(arr,tam);
 }
-
+int main(){
+    int arr[]={99,3,21,45,0};
+    int tam=5;
+        burbuja(arr,5);
+    }
 //insertion
 void imprimir(int ar[], int tm)
 {
