@@ -71,12 +71,6 @@ void imprimir(int arr[], int tam)
                     cout << endl;
             }
 
-            int swap(int &x, int &y){
-                        int temp = x;
-                            x = y;
-                            y = temp;
-            }
-
             int invertir(int arr[], int tam)
             {
                 for(int i = 0; i < tam/2; i++){
@@ -88,15 +82,11 @@ int main()
 {
     int arr[5] = {1, 2, 3, 4, 5};
 
-    int a = 5;
-    int b = 10;
-    swap(a,b);
-    cout << a << " " << b << endl;
-
     imprimir(arr, 5);
     invertir(arr, 5);
     imprimir(arr, 5);
 }
+
 //recursiva
 int invertir(int arr[],int tam)
 {
